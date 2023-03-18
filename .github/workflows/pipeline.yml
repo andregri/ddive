@@ -87,7 +87,7 @@ jobs:
         with:
           distribution: goreleaser
           version: latest
-          args: release --clean --snapshot --skip-publish --rm-dist
+          args: release --clean --snapshot --skip-publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
