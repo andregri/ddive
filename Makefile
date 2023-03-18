@@ -70,18 +70,18 @@ ci-test-rpm-package-install:
 			"
 
 ci-test-linux-run:
-	chmod 755 ./dist/${PROJECT}_linux_amd64/${PROJECT} && \
-	./dist/${PROJECT}_linux_amd64/${PROJECT} '${TEST_IMAGE}'  --ci && \
-    ./dist/${PROJECT}_linux_amd64/${PROJECT} --source docker-archive .data/test-kaniko-image.tar  --ci --ci-config .data/.${PROJECT}-ci
+	chmod 755 ./dist/${PROJECT}_linux_amd64_v1/${PROJECT} && \
+	./dist/${PROJECT}_linux_amd64_v1/${PROJECT} '${TEST_IMAGE}'  --ci && \
+    ./dist/${PROJECT}_linux_amd64_v1/${PROJECT} --source docker-archive .data/test-kaniko-image.tar  --ci --ci-config .data/.${PROJECT}-ci
 
 # we're not attempting to test docker, just our ability to run on these systems. This avoids setting up docker in CI.
 ci-test-mac-run:
-	chmod 755 ./dist/${PROJECT}_darwin_amd64/${PROJECT} && \
-	./dist/${PROJECT}_darwin_amd64/${PROJECT} --source docker-archive .data/test-docker-image.tar  --ci --ci-config .data/.${PROJECT}-ci
+	chmod 755 ./dist/${PROJECT}_darwin_amd64_v1/${PROJECT} && \
+	./dist/${PROJECT}_darwin_amd64_v1/${PROJECT} --source docker-archive .data/test-docker-image.tar  --ci --ci-config .data/.${PROJECT}-ci
 
 # we're not attempting to test docker, just our ability to run on these systems. This avoids setting up docker in CI.
 ci-test-windows-run:
-	./dist/${PROJECT}_windows_amd64/${PROJECT} --source docker-archive .data/test-docker-image.tar  --ci --ci-config .data/.${PROJECT}-ci
+	./dist/${PROJECT}_windows_amd64_v1/${PROJECT} --source docker-archive .data/test-docker-image.tar  --ci --ci-config .data/.${PROJECT}-ci
 
 
 

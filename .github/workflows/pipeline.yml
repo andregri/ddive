@@ -111,9 +111,6 @@ jobs:
         with:
           name: artifacts
           path: dist
-      
-      - name: Debug download artifacts
-        run: ls dist
 
       - name: Test linux run
         run: make ci-test-linux-run
