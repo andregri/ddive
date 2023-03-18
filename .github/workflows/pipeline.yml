@@ -23,7 +23,7 @@ jobs:
         run: go vet ./...
       
       - name: go fmt
-        run: go fmt -x -s -l ./... 2>&1 | grep -vE '^\.git/' | grep -vE '^\.cache/'
+        run: go fmt -x -l ./... 2>&1 | grep -vE '^\.git/' | grep -vE '^\.cache/'
 
       - name: Linting
         uses: golangci/golangci-lint-action@v3
