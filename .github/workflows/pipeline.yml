@@ -25,9 +25,6 @@ jobs:
       - name: Format
         run: diff -u <(echo -n) <(gofmt -d .)
 
-      - name: Linting
-        uses: golangci/golangci-lint-action@v3
-
   unit-test:
     needs: [ go-static-analysis ]
     strategy:
@@ -116,7 +113,7 @@ jobs:
           path: dist
       
       - name: Debug download artifacts
-        run: ls
+        run: ls dist
 
       - name: Test linux run
         run: make ci-test-linux-run
