@@ -113,7 +113,10 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: artifacts
-          #path: dist
+          path: dist
+      
+      - name: Debug download artifacts
+        run: ls
 
       - name: Test linux run
         run: make ci-test-linux-run
