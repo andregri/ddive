@@ -40,16 +40,16 @@ jobs:
   build-artifacts:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-go@v1
+      - uses: actions/setup-go@v3
         with:
           go-version: '1.15.x'
 
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
 
-      - name: Install tooling
-        run: |
-          make ci-install-go-tools
-          make ci-install-ci-tools
+      #- name: Install tooling
+      #  run: |
+      #    make ci-install-go-tools
+      #    make ci-install-ci-tools
 
       - name: Cache go dependencies
         id: package-cache-go-dependencies
@@ -63,8 +63,12 @@ jobs:
         if: steps.package-cache-go-dependencies.outputs.cache-hit != 'true'
         run: go get ./...
 
-      - name: Linting, formatting, and other static code analyses
+      # Why checking that allowTestDataCapture is false?
+      - name: Formatting, and other static code analyses
         run: make ci-static-analysis
+
+      - name: Linting
+        uses: golangci/golangci-lint-action@v3
 
       - name: Build snapshot artifacts
         run: make ci-build-snapshot-packages
