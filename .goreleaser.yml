@@ -37,8 +37,6 @@ nfpms:
 
 dockers:
   -
-    binaries:
-      - ddive
     dockerfile: Dockerfile
     # todo: on 1.0 remove 'v' prefix
     image_templates:
