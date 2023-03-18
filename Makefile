@@ -13,17 +13,6 @@ all: gofmt clean build
 ci-unit-test:
 	go test -cover -v -race ./...
 
-ci-static-analysis:
-	grep -R 'const allowTestDataCapture = false' runtime/ui/viewmodel
-	go vet ./...
-	@! gofmt -s -l . 2>&1 | grep -vE '^\.git/' | grep -vE '^\.cache/'
-
-ci-install-go-tools:
-	curl -sfL https://install.goreleaser.com/github.com/golangci/golangci-lint.sh | sudo sh -s -- -b /usr/local/bin/ latest
-
-ci-install-ci-tools:
-	curl -sfL https://install.goreleaser.com/github.com/goreleaser/goreleaser.sh | sudo sh -s -- -b /usr/local/bin/ "v0.122.0"
-
 ci-docker-login:
 	echo '${DOCKER_PASSWORD}' | docker login -u '${DOCKER_USERNAME}' --password-stdin '${PRODUCTION_REGISTRY}'
 
@@ -32,12 +21,6 @@ ci-docker-logout:
 
 ci-publish-release:
 	goreleaser --rm-dist
-
-ci-build-snapshot-packages:
-	goreleaser \
-		--snapshot \
-		--skip-publish \
-		--rm-dist
 
 ci-release:
 	goreleaser release --rm-dist

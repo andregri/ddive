@@ -6,7 +6,30 @@ on:
 env:
   DOCKER_CLI_VERSION: "19.03.1"
 jobs:
+  go-static-analysis:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-go@v3
+        with:
+          go-version: '1.15.x'
+
+      - uses: actions/checkout@v3
+
+      # Why checking that allowTestDataCapture is false?
+      - name: Check allowTestDataCapture
+        run: grep -R 'const allowTestDataCapture = false' runtime/ui/viewmodel
+
+      - name: go vet
+        run: go vet ./...
+      
+      - name: go fmt
+        @! gofmt -s -l . 2>&1 | grep -vE '^\.git/' | grep -vE '^\.cache/'
+
+      - name: Linting
+        uses: golangci/golangci-lint-action@v3
+
   unit-test:
+    needs: [ go-static-analysis ]
     strategy:
       matrix:
         go-version: [1.14.x, 1.15.x]
@@ -38,6 +61,7 @@ jobs:
         run: make ci-unit-test
 
   build-artifacts:
+    needs: [ go-static-analysis ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-go@v3
@@ -45,11 +69,6 @@ jobs:
           go-version: '1.15.x'
 
       - uses: actions/checkout@v3
-
-      #- name: Install tooling
-      #  run: |
-      #    make ci-install-go-tools
-      #    make ci-install-ci-tools
 
       - name: Cache go dependencies
         id: package-cache-go-dependencies
@@ -63,19 +82,9 @@ jobs:
         if: steps.package-cache-go-dependencies.outputs.cache-hit != 'true'
         run: go get ./...
 
-      # Why checking that allowTestDataCapture is false?
-      - name: Formatting, and other static code analyses
-        run: make ci-static-analysis
-
-      - name: Linting
-        uses: golangci/golangci-lint-action@v3
-
-      #- name: Build snapshot artifacts
-      #  run: make ci-build-snapshot-packages
-      
-      - uses: goreleaser/goreleaser-action@v4
+      - name: Build snapshot artifacts
+        uses: goreleaser/goreleaser-action@v4
         with:
-          # either 'goreleaser' (default) or 'goreleaser-pro':
           distribution: goreleaser
           version: latest
           args: release --clean --snapshot --skip-publish --rm-dist
