@@ -110,10 +110,10 @@ jobs:
 
       - uses: actions/checkout@master
 
-      - uses: actions/download-artifact@master
+      - uses: actions/download-artifact@v3
         with:
           name: artifacts
-          path: dist
+          #path: dist
 
       - name: Test linux run
         run: make ci-test-linux-run
