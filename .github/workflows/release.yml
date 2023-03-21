@@ -5,6 +5,9 @@ on:
     tags:
       - '*'
 
+env:
+  DOCKER_CLI_VERSION: "19.03.1"
+
 permissions:
   contents: write
 
