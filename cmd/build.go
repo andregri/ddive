@@ -1,10 +1,10 @@
 package cmd
 
 import (
+	"github.com/andregri/ddive/dive"
+	"github.com/andregri/ddive/runtime"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
-	"github.com/wagoodman/dive/dive"
-	"github.com/wagoodman/dive/runtime"
 )
 
 // buildCmd represents the build command

@@ -1,4 +1,4 @@
-module github.com/wagoodman/dive
+module github.com/andregri/ddive
 
 go 1.13
 

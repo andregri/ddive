@@ -1,10 +1,12 @@
+//go:build !linux
 // +build !linux
 
 package podman
 
 import (
 	"fmt"
-	"github.com/wagoodman/dive/dive/image"
+
+	"github.com/andregri/ddive/dive/image"
 )
 
 type resolver struct{}

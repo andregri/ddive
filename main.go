@@ -21,7 +21,7 @@
 package main
 
 import (
-	"github.com/wagoodman/dive/cmd"
+	"github.com/andregri/ddive/cmd"
 )
 
 var (

@@ -2,7 +2,7 @@ release:
   prerelease: false
 
 builds:
-  - binary: dive
+  - binary: ddive
     env:
       - CGO_ENABLED=0
     goos:
@@ -14,11 +14,11 @@ builds:
     ldflags: -s -w -X main.version={{.Version}} -X main.commit={{.Commit}} -X main.buildTime={{.Date}}`.
 
 brews:
-  - github:
-      owner: wagoodman
-      name: homebrew-dive
-    homepage: "https://github.com/wagoodman/dive/"
-    description: "A tool for exploring each layer in a docker image"
+  - tap:
+      owner: andregri
+      name: homebrew-ddive
+    homepage: "https://github.com/andregri/ddive/"
+    description: "A tool for exploring each layer in a docker image. Fork of https://github.com/wagoodman/dive/"
 
 archives:
   - format: tar.gz
@@ -28,23 +28,21 @@ archives:
 
 nfpms:
   - license: MIT
-    maintainer: Alex Goodman
-    homepage: https://github.com/wagoodman/dive/
-    description: "A tool for exploring each layer in a docker image"
+    maintainer: Andrea Grillo
+    homepage: https://github.com/andregri/ddive/
+    description: "A tool for exploring each layer in a docker image. Fork of https://github.com/wagoodman/dive/"
     formats:
       - rpm
       - deb
 
 dockers:
   -
-    binaries:
-      - dive
     dockerfile: Dockerfile
     # todo: on 1.0 remove 'v' prefix
     image_templates:
-      - "wagoodman/dive:latest"
-      - "wagoodman/dive:{{ .Tag }}"
-      - "wagoodman/dive:v{{ .Major }}"
-      - "wagoodman/dive:v{{ .Major }}.{{ .Minor }}"
+      - "andregri/ddive:latest"
+      - "andregri/ddive:{{ .Tag }}"
+      - "andregri/ddive:v{{ .Major }}"
+      - "andregri/ddive:v{{ .Major }}.{{ .Minor }}"
     build_flag_templates:
       - "--build-arg=DOCKER_CLI_VERSION={{.Env.DOCKER_CLI_VERSION}}"

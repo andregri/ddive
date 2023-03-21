@@ -4,14 +4,14 @@ import (
 	"fmt"
 	"regexp"
 
+	"github.com/andregri/ddive/dive/filetree"
+	"github.com/andregri/ddive/runtime/ui/format"
+	"github.com/andregri/ddive/runtime/ui/key"
+	"github.com/andregri/ddive/runtime/ui/viewmodel"
+	"github.com/andregri/ddive/utils"
 	"github.com/awesome-gocui/gocui"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
-	"github.com/wagoodman/dive/dive/filetree"
-	"github.com/wagoodman/dive/runtime/ui/format"
-	"github.com/wagoodman/dive/runtime/ui/key"
-	"github.com/wagoodman/dive/runtime/ui/viewmodel"
-	"github.com/wagoodman/dive/utils"
 )
 
 type ViewOptionChangeListener func() error

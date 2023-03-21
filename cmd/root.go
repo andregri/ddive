@@ -7,8 +7,8 @@ import (
 	"path"
 	"strings"
 
-	"github.com/wagoodman/dive/dive"
-	"github.com/wagoodman/dive/dive/filetree"
+	"github.com/andregri/ddive/dive"
+	"github.com/andregri/ddive/dive/filetree"
 
 	"github.com/mitchellh/go-homedir"
 	log "github.com/sirupsen/logrus"

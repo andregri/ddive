@@ -2,11 +2,12 @@ package dive
 
 import (
 	"fmt"
-	"github.com/wagoodman/dive/dive/image"
-	"github.com/wagoodman/dive/dive/image/docker"
-	"github.com/wagoodman/dive/dive/image/podman"
 	"net/url"
 	"strings"
+
+	"github.com/andregri/ddive/dive/image"
+	"github.com/andregri/ddive/dive/image/docker"
+	"github.com/andregri/ddive/dive/image/podman"
 )
 
 const (

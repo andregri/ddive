@@ -10,8 +10,8 @@ import (
 	"path"
 	"strings"
 
-	"github.com/wagoodman/dive/dive/filetree"
-	"github.com/wagoodman/dive/dive/image"
+	"github.com/andregri/ddive/dive/filetree"
+	"github.com/andregri/ddive/dive/image"
 )
 
 type ImageArchive struct {
