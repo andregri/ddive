@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/andregri/ddive/runtime/ui/format"
+	"github.com/andregri/ddive/runtime/ui/key"
+	"github.com/andregri/ddive/utils"
 	"github.com/sirupsen/logrus"
-	"github.com/wagoodman/dive/runtime/ui/format"
-	"github.com/wagoodman/dive/runtime/ui/key"
-	"github.com/wagoodman/dive/utils"
 
 	"github.com/awesome-gocui/gocui"
 )

@@ -2,18 +2,19 @@ package runtime
 
 import (
 	"fmt"
+	"os"
+	"time"
+
+	"github.com/andregri/ddive/dive"
+	"github.com/andregri/ddive/dive/filetree"
+	"github.com/andregri/ddive/dive/image"
+	"github.com/andregri/ddive/runtime/ci"
+	"github.com/andregri/ddive/runtime/export"
+	"github.com/andregri/ddive/runtime/ui"
+	"github.com/andregri/ddive/utils"
 	"github.com/dustin/go-humanize"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/afero"
-	"github.com/wagoodman/dive/dive"
-	"github.com/wagoodman/dive/dive/filetree"
-	"github.com/wagoodman/dive/dive/image"
-	"github.com/wagoodman/dive/runtime/ci"
-	"github.com/wagoodman/dive/runtime/export"
-	"github.com/wagoodman/dive/runtime/ui"
-	"github.com/wagoodman/dive/utils"
-	"os"
-	"time"
 )
 
 func run(enableUi bool, options Options, imageResolver image.Resolver, events eventChannel, filesystem afero.Fs) {

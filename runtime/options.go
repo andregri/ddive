@@ -1,8 +1,8 @@
 package runtime
 
 import (
+	"github.com/andregri/ddive/dive"
 	"github.com/spf13/viper"
-	"github.com/wagoodman/dive/dive"
 )
 
 type Options struct {

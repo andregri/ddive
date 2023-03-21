@@ -1,10 +1,11 @@
+//go:build linux
 // +build linux
 
 package podman
 
 import (
 	"fmt"
-	"github.com/wagoodman/dive/utils"
+	"github.com/andregri/ddive/utils"
 	"io"
 	"os"
 	"os/exec"

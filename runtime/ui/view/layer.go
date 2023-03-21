@@ -2,13 +2,14 @@ package view
 
 import (
 	"fmt"
+
+	"github.com/andregri/ddive/dive/image"
+	"github.com/andregri/ddive/runtime/ui/format"
+	"github.com/andregri/ddive/runtime/ui/key"
+	"github.com/andregri/ddive/runtime/ui/viewmodel"
 	"github.com/awesome-gocui/gocui"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
-	"github.com/wagoodman/dive/dive/image"
-	"github.com/wagoodman/dive/runtime/ui/format"
-	"github.com/wagoodman/dive/runtime/ui/key"
-	"github.com/wagoodman/dive/runtime/ui/viewmodel"
 )
 
 // Layer holds the UI objects and data models for populating the lower-left pane. Specifically the pane that

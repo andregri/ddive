@@ -2,8 +2,8 @@ package podman
 
 import (
 	"fmt"
-	"github.com/wagoodman/dive/dive/image"
-	"github.com/wagoodman/dive/dive/image/docker"
+	"github.com/andregri/ddive/dive/image"
+	"github.com/andregri/ddive/dive/image/docker"
 	"io/ioutil"
 )
 

@@ -1,10 +1,10 @@
 package compound
 
 import (
+	"github.com/andregri/ddive/runtime/ui/view"
+	"github.com/andregri/ddive/utils"
 	"github.com/awesome-gocui/gocui"
 	"github.com/sirupsen/logrus"
-	"github.com/wagoodman/dive/runtime/ui/view"
-	"github.com/wagoodman/dive/utils"
 )
 
 type LayerDetailsCompoundLayout struct {

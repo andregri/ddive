@@ -5,11 +5,11 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/andregri/ddive/dive/filetree"
+	"github.com/andregri/ddive/dive/image"
+	"github.com/andregri/ddive/runtime/ui/format"
+	"github.com/andregri/ddive/runtime/ui/key"
 	"github.com/sirupsen/logrus"
-	"github.com/wagoodman/dive/dive/filetree"
-	"github.com/wagoodman/dive/dive/image"
-	"github.com/wagoodman/dive/runtime/ui/format"
-	"github.com/wagoodman/dive/runtime/ui/key"
 
 	"github.com/awesome-gocui/gocui"
 	"github.com/dustin/go-humanize"

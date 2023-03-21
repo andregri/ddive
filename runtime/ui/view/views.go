@@ -1,9 +1,9 @@
 package view
 
 import (
+	"github.com/andregri/ddive/dive/filetree"
+	"github.com/andregri/ddive/dive/image"
 	"github.com/awesome-gocui/gocui"
-	"github.com/wagoodman/dive/dive/filetree"
-	"github.com/wagoodman/dive/dive/image"
 )
 
 type Views struct {

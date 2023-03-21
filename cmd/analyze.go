@@ -2,13 +2,14 @@ package cmd
 
 import (
 	"fmt"
-	"github.com/sirupsen/logrus"
-	"github.com/spf13/viper"
-	"github.com/wagoodman/dive/dive"
 	"os"
 
+	"github.com/andregri/ddive/dive"
+	"github.com/sirupsen/logrus"
+	"github.com/spf13/viper"
+
+	"github.com/andregri/ddive/runtime"
 	"github.com/spf13/cobra"
-	"github.com/wagoodman/dive/runtime"
 )
 
 // doAnalyzeCmd takes a docker image tag, digest, or id and displays the

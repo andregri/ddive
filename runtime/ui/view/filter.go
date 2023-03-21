@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/andregri/ddive/runtime/ui/format"
+	"github.com/andregri/ddive/utils"
 	"github.com/awesome-gocui/gocui"
 	"github.com/sirupsen/logrus"
-	"github.com/wagoodman/dive/runtime/ui/format"
-	"github.com/wagoodman/dive/utils"
 )
 
 type FilterEditListener func(string) error

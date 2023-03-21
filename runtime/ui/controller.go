@@ -1,13 +1,14 @@
 package ui
 
 import (
+	"regexp"
+
+	"github.com/andregri/ddive/dive/filetree"
+	"github.com/andregri/ddive/dive/image"
+	"github.com/andregri/ddive/runtime/ui/view"
+	"github.com/andregri/ddive/runtime/ui/viewmodel"
 	"github.com/awesome-gocui/gocui"
 	"github.com/sirupsen/logrus"
-	"github.com/wagoodman/dive/dive/filetree"
-	"github.com/wagoodman/dive/dive/image"
-	"github.com/wagoodman/dive/runtime/ui/view"
-	"github.com/wagoodman/dive/runtime/ui/viewmodel"
-	"regexp"
 )
 
 type Controller struct {

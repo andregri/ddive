@@ -2,11 +2,12 @@ package docker
 
 import (
 	"fmt"
-	"github.com/wagoodman/dive/dive/image"
 	"io"
 	"net/http"
 	"os"
 	"strings"
+
+	"github.com/andregri/ddive/dive/image"
 
 	"github.com/docker/cli/cli/connhelper"
 	"github.com/docker/docker/client"
