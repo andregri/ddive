@@ -1,6 +1,6 @@
 {
   "name": "ddive",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A tool for exploring each layer in a docker image. Fork of https://github.com/wagoodman/dive/",
   "scripts": {
     "postinstall": "go-npm install",
@@ -23,6 +23,6 @@
   "goBinary": {
     "name": "ddive",
     "path": "./bin",
-    "url": "https://github.com/andregri/ddive/releases/download/v{{version}}/ddive_{{version}}_{{platform}}_{{arch}}.tar.gz"
+    "url": "https://github.com/andregri/ddive/releases/download/{{version}}/ddive_{{version}}_{{platform}}_{{arch}}.tar.gz"
   }
 }
