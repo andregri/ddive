@@ -47,3 +47,14 @@ jobs:
       -
         name: Smoke test published image
         run: make ci-test-production-image
+  
+  npmjs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          registry-url: "https://registry.npmjs.org"
+      - run: npm publish --ignore-scripts --access=public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -1,0 +1,28 @@
+{
+  "name": "ddive",
+  "version": "0.1.0",
+  "description": "A tool for exploring each layer in a docker image. Fork of https://github.com/wagoodman/dive/",
+  "scripts": {
+    "postinstall": "go-npm install",
+    "preuninstall": "go-npm uninstall"
+  },
+  "repository": "github:andregri/ddive",
+  "keywords": [
+    "cli",
+    "docker"
+  ],
+  "author": "Andrea Grillo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andregri/ddive/issues"
+  },
+  "homepage": "https://github.com/andregri/ddive/blob/master/README.md",
+  "dependencies": {
+    "go-npm": "^0.1.9"
+  },
+  "goBinary": {
+    "name": "ddive",
+    "path": "./bin",
+    "url": "https://github.com/andregri/ddive/releases/download/v{{version}}/ddive_{{version}}_{{platform}}_{{arch}}.tar.gz"
+  }
+}

@@ -22,3 +22,6 @@
 /dist
 .cover
 coverage.txt
+
+# npm
+node_modules
