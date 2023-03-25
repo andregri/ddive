@@ -1,6 +1,5 @@
 # ddive
 [![Go Report Card](https://goreportcard.com/badge/github.com/andregri/ddive)](https://goreportcard.com/report/github.com/andregri/ddive)
-[![Pipeline Status](https://circleci.com/gh/wagoodman/dive.svg?style=svg)](https://circleci.com/gh/wagoodman/dive)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg?style=flat)](https://www.paypal.me/andregri96)
 
 ---
