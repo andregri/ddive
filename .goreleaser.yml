@@ -13,13 +13,6 @@ builds:
       - amd64
     ldflags: -s -w -X main.version={{.Version}} -X main.commit={{.Commit}} -X main.buildTime={{.Date}}`.
 
-brews:
-  - tap:
-      owner: andregri
-      name: homebrew-ddive
-    homepage: "https://github.com/andregri/ddive/"
-    description: "A tool for exploring each layer in a docker image. Fork of https://github.com/wagoodman/dive/"
-
 archives:
   - format: tar.gz
     format_overrides:
