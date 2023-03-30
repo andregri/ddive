@@ -86,6 +86,7 @@ func (r *engineResolver) fetchArchive(id string) (io.ReadCloser, error) {
 	}
 	_, _, err = dockerClient.ImageInspectWithRaw(ctx, id)
 	if err != nil {
+		// TODO: tries to pull even if the docker daemon is not running
 		// don't use the API, the CLI has more informative output
 		fmt.Println("Handler not available locally. Trying to pull '" + id + "'...")
 		err = runDockerCmd("pull", id)

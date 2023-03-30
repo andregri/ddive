@@ -8,6 +8,7 @@ import (
 	"github.com/andregri/ddive/dive/image"
 	"github.com/andregri/ddive/dive/image/docker"
 	"github.com/andregri/ddive/dive/image/podman"
+	"github.com/andregri/ddive/dive/image/registry"
 )
 
 const (
@@ -15,14 +16,20 @@ const (
 	SourceDockerEngine
 	SourcePodmanEngine
 	SourceDockerArchive
+	SourceRegistry
 )
 
 type ImageSource int
 
-var ImageSources = []string{SourceDockerEngine.String(), SourcePodmanEngine.String(), SourceDockerArchive.String()}
+var ImageSources = []string{
+	SourceDockerEngine.String(),
+	SourcePodmanEngine.String(),
+	SourceDockerArchive.String(),
+	SourceRegistry.String(),
+}
 
 func (r ImageSource) String() string {
-	return [...]string{"unknown", "docker", "podman", "docker-archive"}[r]
+	return [...]string{"unknown", "docker", "podman", "docker-archive", "registry"}[r]
 }
 
 func ParseImageSource(r string) ImageSource {
@@ -35,6 +42,8 @@ func ParseImageSource(r string) ImageSource {
 		return SourceDockerArchive
 	case "docker-tar":
 		return SourceDockerArchive
+	case SourceRegistry.String():
+		return SourceRegistry
 	default:
 		return SourceUnknown
 	}
@@ -57,7 +66,8 @@ func DeriveImageSource(image string) (ImageSource, string) {
 		return SourceDockerArchive, imageSource
 	case "docker-tar":
 		return SourceDockerArchive, imageSource
-
+	case SourceRegistry.String():
+		return SourceRegistry, imageSource
 	}
 	return SourceUnknown, ""
 }
@@ -70,6 +80,8 @@ func GetImageResolver(r ImageSource) (image.Resolver, error) {
 		return podman.NewResolverFromEngine(), nil
 	case SourceDockerArchive:
 		return docker.NewResolverFromArchive(), nil
+	case SourceRegistry:
+		return registry.NewResolverFromRegistry(), nil
 	}
 
 	return nil, fmt.Errorf("unable to determine image resolver")
