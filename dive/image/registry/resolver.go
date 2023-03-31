@@ -1,11 +1,10 @@
 package registry
 
 import (
-	"archive/tar"
-	"bytes"
 	"context"
 	"io"
 	"log"
+	"os"
 
 	"github.com/andregri/ddive/dive/image"
 	"github.com/andregri/ddive/dive/image/docker"
@@ -42,17 +41,23 @@ func (r *engineResolver) Fetch(id string) (*image.Image, error) {
 		return nil, err
 	}
 
-	manifestBytes, err := copy.Image(context.Background(), policyCtx, destRef, srcRef, nil)
+	if _, err := os.Stat("redis_latest.tar"); err != nil {
+		// if file does not exists
+		manifestBytes, err := copy.Image(context.Background(), policyCtx, destRef, srcRef, nil)
+		if err != nil {
+			log.Printf("failed to copy image from %s to %s\n", srcImageName, destImageName)
+			return nil, err
+		}
+		log.Println(string(manifestBytes))
+	}
+
+	file, err := os.Open("redis_latest.tar")
 	if err != nil {
-		log.Printf("failed to copy image from %s to %s\n", srcImageName, destImageName)
+		log.Println("Error while reading tar")
 		return nil, err
 	}
 
-	log.Println(string(manifestBytes))
-
-	var buf bytes.Buffer
-	reader := tar.NewReader(&buf)
-	readCloser := io.NopCloser(reader)
+	readCloser := io.NopCloser(file)
 
 	img, err := docker.NewImageArchive(readCloser)
 	if err != nil {
