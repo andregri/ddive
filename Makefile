@@ -104,7 +104,7 @@ run-ci: build
 	CI=true $(BUILD_PATH) ${PROJECT}-example:latest --ci-config .data/.${PROJECT}-ci
 
 build: gofmt
-	go build -o $(BUILD_PATH)
+	go build -tags containers_image_openpgp -o $(BUILD_PATH)
 
 generate-test-data:
 	docker build -t ${PROJECT}-test:latest -f .data/Dockerfile.test-image . && docker image save -o .data/test-docker-image.tar ${PROJECT}-test:latest && echo 'Exported test data!'
